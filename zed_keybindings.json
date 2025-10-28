@@ -145,8 +145,8 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-/": "workspace::ToggleRightDock",
       "ctrl-n": "workspace::NewTerminal",
-      "shift-h": "pane::ActivatePreviousItem",
-      "shift-l": "pane::ActivateNextItem"
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
+      "ctrl-shift-l": "pane::ActivateNextItem"
     }
   },
   {
@@ -210,14 +210,14 @@
   },
 
   {
-    "context": "GitPanel || vim_mode == normal",
+    "context": "GitPanel && vim_mode == normal",
     "bindings": {
       "shift-c": "git::Commit",
       "shift-p": "git::Push",
       "p": "git::Pull",
       "q": "git_panel::Close"
     }
-  }
+  },
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
   //   "context": "VimControl && !menu",
@@ -228,4 +228,67 @@
   //     "g e": "vim::PreviousSubwordEnd"
   //   }
   // }
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "z m": "editor::FoldAll"
+    }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "z r": "editor::UnfoldAll"
+    }
+  },
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      // Window movement bindings
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      // Switch between buffers
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      // Close active panel
+      "shift-q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // Close other items
+      "space b o": "pane::CloseOtherItems",
+      // File finder
+      "space space": "file_finder::Toggle",
+      // Project search
+      "space /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      // Git-specific actions
+      "shift-c": "git::Commit",
+      "shift-p": "git::Push",
+      "p": "git::Pull",
+      "q": "git_panel::Close",
+      // Window movement bindings
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      // Switch between buffers
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      // Close active panel
+      "shift-q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // Close other items
+      "space b o": "pane::CloseOtherItems",
+      // File finder
+      "space space": "file_finder::Toggle",
+      // Project search
+      "space /": "pane::DeploySearch"
+    }
+  }
 ]
